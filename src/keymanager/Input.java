@@ -40,7 +40,7 @@ public class Input {
 	}
 
 	/**
-	 * Returns true if the key is pressed down, otherwise false.
+	 * Returns true if the input is pressed down, otherwise false.
 	 * 
 	 * @return
 	 */
@@ -112,7 +112,7 @@ public class Input {
 	}
 
 	/**
-	 * Set the action that will happen when the key is pressed.
+	 * Set the action that will happen when the input is pressed.
 	 * 
 	 * @param event
 	 */
@@ -121,7 +121,7 @@ public class Input {
 	}
 
 	/**
-	 * Set the action that will happen when the key is released.
+	 * Set the action that will happen when the input is released.
 	 * 
 	 * @param event
 	 */
@@ -161,7 +161,7 @@ public class Input {
 	}
 
 	/**
-	 * Update the key's pressed state.
+	 * Update the input's pressed state.
 	 * Call the pressed and released events if need.
 	 * 
 	 * @param inputCode
