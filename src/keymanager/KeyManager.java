@@ -2,6 +2,7 @@ package keymanager;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
+import processing.event.MouseEvent;
 
 public class KeyManager {
 	
@@ -9,10 +10,11 @@ public class KeyManager {
 
 	public KeyManager(PApplet sketch){
 		if(me != null){
-			throw new RuntimeException("Error: there can only be one KeyManager.");
+			throw new RuntimeException("Error: there can only be one " + getClass().getSimpleName() + ".");
 		}
 		me = this;
 		sketch.registerMethod("keyEvent", this);
+		sketch.registerMethod("mouseEvent", this);
 	}
 
 	/**
@@ -33,7 +35,7 @@ public class KeyManager {
 	 * @param e
 	 */
 	private void keyPressed(KeyEvent e){
-		for(Key key : Key.keys){
+		for(Input key : Input.keyBoardKeys){
 			key.update(e.getKeyCode(), true);
 		}
 	}
@@ -44,8 +46,42 @@ public class KeyManager {
 	 * @param e
 	 */
 	private void keyReleased(KeyEvent e){
-		for(Key key : Key.keys){
+		for(Input key : Input.keyBoardKeys){
 			key.update(e.getKeyCode(), false);
+		}
+	}
+
+	/**
+	 * Called when a mouse event occurs.
+	 * 
+	 * @param e
+	 */
+	public void mouseEvent(MouseEvent e){
+		switch(e.getAction()){
+		case KeyEvent.PRESS:	mouseButtonPressed(e);	break;
+		case KeyEvent.RELEASE:	mouseButtonReleased(e);	break;
+		}
+	}
+
+	/**
+	 * Called when a mouse button is pressed.
+	 * 
+	 * @param e
+	 */
+	private void mouseButtonPressed(MouseEvent e){
+		for(Input button : Input.mouseButtons){
+			button.update(e.getButton(), true);
+		}
+	}
+
+	/**
+	 * Called when a mouse button is released.
+	 * 
+	 * @param e
+	 */
+	private void mouseButtonReleased(MouseEvent e){
+		for(Input button : Input.mouseButtons){
+			button.update(e.getButton(), false);
 		}
 	}
 }
