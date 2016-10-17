@@ -1,4 +1,4 @@
-package keymanager;
+package inputmanager;
 
 public class MouseButton extends Input {
 

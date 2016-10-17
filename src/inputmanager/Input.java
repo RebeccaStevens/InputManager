@@ -1,4 +1,4 @@
-package keymanager;
+package inputmanager;
 
 import java.util.ArrayList;
 import java.util.List;

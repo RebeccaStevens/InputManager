@@ -1,14 +1,14 @@
-package keymanager;
+package inputmanager;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
 import processing.event.MouseEvent;
 
-public class KeyManager {
+public class InputManager {
 	
-	private static KeyManager me;
+	private static InputManager me;
 
-	public KeyManager(PApplet sketch){
+	public InputManager(PApplet sketch){
 		if(me != null){
 			throw new RuntimeException("Error: there can only be one " + getClass().getSimpleName() + ".");
 		}
